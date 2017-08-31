@@ -209,17 +209,25 @@ function initializeMap() {
     // actually searching for location data.
     var service = new google.maps.places.PlacesService(map);
 
-    // Iterates through the array of locations, creates a search object for each location
-      locations.forEach(function(place){
-      // the search request object
-      var request = {
-        query: place
-      };
+    for (var place in locations) {
+    // New sections to check if locations[place] exists
+    // This keeps google maps from breaking if a location field is empty.
+      if (!locations[place])
+        continue;
 
+    // Iterates through the array of locations, creates a search object for each location
+      // locations.forEach(function(place){
+      // the search request object
+        var request = {
+          query: locations[place]
+        };
+
+        service.textSearch(request, callback);
+    }
       // Actually searches the Google Maps API for location data and runs the callback
       // function with the search results after each search.
-      service.textSearch(request, callback);
-    });
+    //   service.textSearch(request, callback);
+    // };
   }
 
   // Sets the boundaries of the map based on pin locations
@@ -239,11 +247,11 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function(e) {
   //Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+ map.fitBounds(mapBounds);
+});
