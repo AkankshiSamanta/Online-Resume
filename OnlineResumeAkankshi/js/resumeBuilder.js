@@ -1,22 +1,21 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
-
  var bio={
     "name": "Akankshi Samanta",
     "role": "Front-End Web Developer",
     "contacts": {
         "mobile": "+91-9176098227",
         "email": "akankshi.samanta12@gmail.com",
-        "github": "akankshisamanta",
+        "github": "AkankshiSamanta",
         "location": "New Delhi"
     },
   "biopic": "images/me.jpg",
   "welcomeMessage": "Heya! I'm a Web Developer in making. Enjoy my page :)",
   "skills": ["Embedded C", "HTML", "CSS", "JavaScript"],
- };
+};
 
- var education = {
+var education = {
      "schools":[
        {
          "name": "SRM University, Chennai",
@@ -42,16 +41,16 @@ This is empty on purpose! Your code to build the resume will go here.
          "url": "https://udacity.com"
        },
      ],
- 	};
+};
 
-  var work = {
+var work = {
          "jobs":[
            {
              "title": "Graduate Trainee",
              "employer": "Infosys",
              "dates": "2017",
              "location": "Mysore",
-             "description": "nfosys Limited is an Indian multinational corporation that provides business consulting, information technology and outsourcing services",
+             "description": "Infosys Limited is an Indian multinational corporation that provides business consulting, information technology and outsourcing services",
            },
            {
              "title": "Intern",
@@ -61,9 +60,9 @@ This is empty on purpose! Your code to build the resume will go here.
              "description": "Company with a product portfolio encompassing from Mechanical & Electronic Security System and Electronic Controllers for Electric Vehicles for Auto OEMs across the Globe."
            },
          ],
-  };
+};
 
- var projects ={
+var projects ={
  			"projects":[
  				{
  					"title": "Obstacle Detecting Robot",
@@ -78,24 +77,22 @@ This is empty on purpose! Your code to build the resume will go here.
  					"images": ["images/smart.jpg"]
  				}
  			],
- 	};
-
-
+};
 
 bio.display = function() {
       var formattedName = HTMLheaderName.replace("%data%", bio.name);
       var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-      $("#header").prepend(formattedName, formattedRole);
-
       var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
       var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
       var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
       var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-      $("#topContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedTwitter, formattedLocation);
-      $("#footerContacts").append(formattedMobile, formattedEmail, formattedTwitter, formattedGithub, formattedLocation);
-
       var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
       var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+
+
+      $("#header").prepend(formattedName, formattedRole);
+      $("#topContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
+      $("#footerContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
       $("#header").append(formattedBioPic, formattedWelcomeMsg);
 
       if(bio.skills.length > 0){
@@ -196,7 +193,7 @@ function inName(name) {
 
     return name[0]+" "+name[1];
 }
-$("#main").append(internationalizeButton);
 
+$("#main").append(internationalizeButton);
 
 $( "#mapDiv" ).append( googleMap );
